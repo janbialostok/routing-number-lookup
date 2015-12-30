@@ -1,0 +1,16 @@
+{
+  "name": "routing-number-lookup",
+  "version": "1.0.0",
+  "description": "Basic routing number lookup module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.1.1",
+    "cheerio": "^0.19.0",
+    "util-extend": "^1.0.1"
+  }
+}
