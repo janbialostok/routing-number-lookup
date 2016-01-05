@@ -6,7 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": {
+    "name": "Jan Bialostok",
+    "email": "janbialostok@gmail.com",
+    "url": "https://github.com/janbialostok"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janbialostok/routing-number-lookup"
+  },
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.1.1",
