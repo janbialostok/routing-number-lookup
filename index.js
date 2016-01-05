@@ -82,40 +82,41 @@ RoutingNumberLookup.prototype.parse = function (options) {
 	return this;
 };
 
-var test = new RoutingNumberLookup({
-	routingNumber: '021000021',
-	parseOptions: [
-		{
-			selector: '.ublcrnright',
-			get: 'html'
-		},
-		{
-			selector: '.ublcrndetail tr',
-			get: 'html'
-		}
-	]
-}).lookup()
-	.then(function (self) {
-		self.parse();
-		var isValid = (/\d+\s?\w+\s?valid/gi.test(self.parseData[0])) ? true : false,
-			bankName;
-		(function () {
-			var str = self.parseData[1],
-				start = str.indexOf('<a') + 1;
-			while (str[start] !== '>') {
-				start++;
-			}
-			str = str.substring(start + 1, str.length);
-			var end = str.indexOf('</a');
-			bankName = str.substring(0, end);
-		})();
-		console.log({
-			valid: isValid,
-			name: bankName
-		});
-	})
-	.catch(function (err) {
-		console.log(err);
-	});
+//Example
+// var test = new RoutingNumberLookup({
+// 	routingNumber: '021000021',
+// 	parseOptions: [
+// 		{
+// 			selector: '.ublcrnright',
+// 			get: 'html'
+// 		},
+// 		{
+// 			selector: '.ublcrndetail tr',
+// 			get: 'html'
+// 		}
+// 	]
+// }).lookup()
+// 	.then(function (self) {
+// 		self.parse();
+// 		var isValid = (/\d+\s?\w+\s?valid/gi.test(self.parseData[0])) ? true : false,
+// 			bankName;
+// 		(function () {
+// 			var str = self.parseData[1],
+// 				start = str.indexOf('<a') + 1;
+// 			while (str[start] !== '>') {
+// 				start++;
+// 			}
+// 			str = str.substring(start + 1, str.length);
+// 			var end = str.indexOf('</a');
+// 			bankName = str.substring(0, end);
+// 		})();
+// 		console.log({
+// 			valid: isValid,
+// 			name: bankName
+// 		});
+// 	})
+// 	.catch(function (err) {
+// 		console.log(err);
+// 	});
 
 module.exports = RoutingNumberLookup;
